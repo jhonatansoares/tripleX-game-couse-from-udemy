@@ -1,16 +1,26 @@
 #include <iostream>
 #include <ctime>
 using namespace std; 
+int levelDificulty = 1;
 
-void PlayGame(){
-    cout << "You are a super secret agent breaking into a server room";
+void printIntroduction(int dificulty){
+    cout << "You are a super secret agent breaking into a level " << dificulty;
+    cout << "server room";
     cout << endl;
     cout << "Enter de correct code to continue...";
     cout << endl;
+}
 
-    int codeA = 1;
-    int codeB = 2;
-    int codeC = 3;
+bool PlayGame(int dificulty){
+    
+    printIntroduction(dificulty);
+    srand(time(NULL));
+    int codeA = rand() % dificulty + dificulty;
+    int codeB = rand() % dificulty + dificulty;
+    int codeC = rand() % dificulty + dificulty;
+
+    //cout << codeA << codeB << codeC;
+
 
     int sum = codeA + codeB + codeC;
     int product = codeA * codeB * codeC;
@@ -31,15 +41,31 @@ void PlayGame(){
     int guessProduct = guessA * guessB * guessC;
 
     if(guessSum == sum && guessProduct == product){
-        cout << "You win!" << endl;
+        cout << "Wel done agent! you have extracted a file! keep going!" << endl;
+        return true;
     }else{
-        cout << "You loose!" << endl;
+        cout << "You entered the wrong code! Careful agent try again" << endl;
+        return false;
     }
 }
 
+
+
 int main(){
+
     
-    PlayGame();
+    
+    while(levelDificulty <= 10){
+        bool levelComplete = PlayGame(levelDificulty);
+        cin.clear();
+        cin.ignore(); 
+        if(levelComplete){
+            levelDificulty++;
+        }
+    }
+
+    cout << "Great agent! you have got all of the files! now get out of there!" << endl;
+    
 
     return 0;
 }
