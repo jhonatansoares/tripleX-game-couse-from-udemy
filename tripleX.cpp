@@ -64,8 +64,7 @@ int main(){
         }
     }
 
-    cout << "Great agent! you have got all of the files! now get out of there!" << endl;
-    
-
+    cout << "Great agent! you have got all of the files! now get out of there!" << endl;    
+    cout << "Thanks for playing this game" << endl;    
     return 0;
 }
