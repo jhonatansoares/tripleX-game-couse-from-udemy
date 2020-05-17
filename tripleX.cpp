@@ -2,7 +2,7 @@
 #include <ctime>
 using namespace std; 
 
-int main(){
+void PlayGame(){
     cout << "You are a super secret agent breaking into a server room";
     cout << endl;
     cout << "Enter de correct code to continue...";
@@ -35,6 +35,11 @@ int main(){
     }else{
         cout << "You loose!" << endl;
     }
+}
+
+int main(){
+    
+    PlayGame();
 
     return 0;
 }
