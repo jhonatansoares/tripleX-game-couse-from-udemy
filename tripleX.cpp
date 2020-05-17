@@ -50,10 +50,7 @@ bool PlayGame(int dificulty){
 }
 
 
-
-int main(){
-
-    
+int main(){   
     
     while(levelDificulty <= 10){
         bool levelComplete = PlayGame(levelDificulty);
